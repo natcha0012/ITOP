@@ -1,3 +1,18 @@
 .user-list {
     width: 80vw;
+    padding: 2rem;
+}
+
+.edit-button {
+    display: flex;
+    justify-content: flex-end;
+    white-space: nowrap;
+}
+
+/* .table {
+    table-layout: fixed !important;
+} */
+
+.id-column {
+    width: 10px;
 }

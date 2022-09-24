@@ -1,32 +1,23 @@
 <div class="card user-list">
-    <div>USER LIST</div>
+    <h2 [style.marginBottom.rem]="1">USER LIST</h2>
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th *ngFor="let header of headerTable;" scope="col">{{header}}</th>
+                <th [style.width.px]="1"></th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
+            <tr *ngFor="let user of dataSource;">
+                <th scope="row">{{user.id}}</th>
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.country}}</td>
+                <td class="edit-button">
+                    <button type="button" class="btn btn-outline-primary">Edit</button>
+                    <button [style.marginLeft.px]="10" type="button" class="btn btn-outline-danger">Delete</button>
+                </td>
+
             </tr>
         </tbody>
     </table>
