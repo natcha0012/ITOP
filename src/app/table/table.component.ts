@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { User } from 'src/models/user.model';
 
 @Component({
@@ -8,32 +8,22 @@ import { User } from 'src/models/user.model';
 })
 export class TableComponent implements OnInit {
 
-  @Input() headerTable?: string[] = ['id', 'firstname', 'lastname', 'country']
-  @Input() dataSource?: User[]
+  @Input() headerTable: string[] = [];
+  @Input() dataSource: User[] = [];
+  @Output() onClickEdit = new EventEmitter<boolean>;
+  @Output() onClickDelete = new EventEmitter<number>;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.dataSource = [
-      {
-        id: 1,
-        firstName: 'Mark',
-        lastName: 'Otto',
-        country: 'USA'
-      },
-      {
-        id: 2,
-        firstName: 'Jacob',
-        lastName: 'Thorn',
-        country: 'Australia'
-      },
-      {
-        id: 3,
-        firstName: 'Tangtai',
-        lastName: 'Vanis',
-        country: 'Thailand'
-      },
-    ]
+  }
+
+  public edit(): void {
+    this.onClickEdit.emit(true);
+  }
+
+  public delete(id: number): void {
+    this.onClickDelete.emit(id);
   }
 
 }

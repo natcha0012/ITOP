@@ -1,0 +1,1 @@
+export const headerTable = ['id', 'firstname', 'lastname', 'country']
