@@ -21,6 +21,14 @@ export class UserService {
     return this.http.get<User[]>(environment.API.USER);
   }
 
+  public getUserByID(id: number) {
+    return this.http.get<User>(`${environment.API.USER}/${id}`);
+  }
+
+  public updateUser(id: number, body: Partial<User>) {
+    return this.http.put<User>(`${environment.API.USER}/${id}`, body);
+  }
+
   public deleteUser(id: number) {
     console.log('delete user', id)
     return this.http.delete(`${environment.API.USER}/${id}`);

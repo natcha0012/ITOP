@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -14,12 +14,14 @@ export class UserFormPageComponent implements OnInit {
   public userFormGroup: FormGroup;
   public canEdit = true;
   public canDelete = true;
+  private userID?: number
 
   constructor(
     private location: Location,
     private fb: FormBuilder,
     private readonly userService: UserService,
-    private readonly router: Router
+    private router: Router,
+    private route: ActivatedRoute,
   ) {
 
     this.userFormGroup = this.fb.group({
@@ -35,6 +37,10 @@ export class UserFormPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.userID = Number(this.route.snapshot.paramMap.get('id'));
+    if (this.userID) {
+      this.fetchUser(this.userID)
+    }
   }
 
   public checkError(key: string): boolean {
@@ -56,8 +62,22 @@ export class UserFormPageComponent implements OnInit {
     const user = this.userFormGroup.value
     user.canEdit = this.canEdit;
     user.canDelete = this.canDelete;
-    this.userService.createUser(user).subscribe();
+    if (this.userID)
+      this.userService.updateUser(this.userID, user).subscribe()
+    else
+      this.userService.createUser(user).subscribe();
     this.router.navigate(['user-list'])
+  }
+
+  private fetchUser(userID: number) {
+    this.userService.getUserByID(userID)
+      .subscribe((user) => {
+        this.userFormGroup.patchValue(user)
+        this.canEdit = user.canEdit;
+        this.canDelete = user.canDelete;
+        if (!user.canEdit)
+          this.userFormGroup.disable();
+      })
   }
 
 }
