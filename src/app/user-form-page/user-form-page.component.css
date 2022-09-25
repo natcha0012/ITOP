@@ -43,3 +43,14 @@
 .check-list {
     margin-top: 1rem;
 }
+
+.required:after {
+    content: " *";
+    color: red;
+}
+
+.warning:after {
+    color: red;
+    font-size: 0.8rem;
+    content: "invalid";
+}

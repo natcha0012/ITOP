@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { catchError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from 'src/models/user.model';
 
@@ -10,6 +11,10 @@ import { User } from 'src/models/user.model';
 })
 export class UserService {
   constructor(private http: HttpClient) {
+  }
+
+  public createUser(user: User) {
+    return this.http.post(environment.API.USER, user);
   }
 
   public getUserList() {
