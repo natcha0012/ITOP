@@ -14,7 +14,7 @@
                 <td>{{user.lastName}}</td>
                 <td>{{user.country}}</td>
                 <td class="edit-button">
-                    <button type="button" (click)="edit()" class="btn btn-outline-primary">Edit</button>
+                    <button type="button" (click)="edit(user.id)" class="btn btn-outline-primary">Edit</button>
                     <button [style.marginLeft.px]="10" type="button" (click)="delete(user.id)"
                         class="btn btn-outline-danger">Delete</button>
                 </td>

@@ -1,1 +1,64 @@
-<p>user-form-page works!</p>
+<div class="main-content">
+    <div class="card form-card">
+        <h2 [style.marginBottom.rem]="2">USER DETAIL</h2>
+        <div class="flex-row">
+            <div class="flex-column">
+                <label class="form-label">Firstname</label>
+                <input class="form-control">
+            </div>
+            <div class="flex-column">
+                <label class="form-label">Lastname</label>
+                <input class="form-control">
+            </div>
+            <div class="flex-column">
+                <label class="form-label">Country</label>
+                <input class="form-control">
+            </div>
+        </div>
+
+        <div class="flex-row">
+            <div [style.width.%]="50" class="flex-column">
+                <label class="form-label">CitizenID</label>
+                <input class="form-control">
+            </div>
+            <div [style.width.%]="50" class="flex-column">
+                <label class="form-label">PhoneNumber</label>
+                <input class="form-control">
+            </div>
+        </div>
+        <div class="flex-row">
+            <div [style.width.%]="100" class="flex-column">
+                <label class="form-label">Address</label>
+                <textarea class="form-control" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="flex-row">
+            <div class="flex-column">
+                <label class="form-label">Career</label>
+                <input class="form-control">
+            </div>
+            <div class="flex-column">
+                <label class="form-label">Salary</label>
+                <input class="form-control">
+            </div>
+        </div>
+        <div class="check-list">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="">
+                <label class="form-check-label">
+                    cannot update user
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="">
+                <label class="form-check-label">
+                    cannot delete user
+                </label>
+            </div>
+        </div>
+        <div class="button-row">
+            <button type="button" (click)="navigateBack()" class="btn btn-outline-success my-btn">Back</button>
+            <button type="button" class="btn btn-success my-btn">Save</button>
+        </div>
+    </div>
+</div>
