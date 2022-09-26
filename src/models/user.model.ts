@@ -1,6 +1,14 @@
 export interface User {
     id: number;
-    firstName: string;
-    lastName: string;
+    firstname: string;
+    lastname: string;
     country: string;
+    canEdit: boolean;
+    canDelete: boolean;
+    citizenid?: string;
+    phoneNumber?: string;
+    address?: string;
+    career?: string;
+    salary?: string;
+
 }

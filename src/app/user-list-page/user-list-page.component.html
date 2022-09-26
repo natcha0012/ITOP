@@ -1,8 +1,8 @@
 <div class="main-content">
     <div class="create-button">
-        <button type="button" (click)="navigateToUserForm('create')" class="btn btn-outline-success"> + Create
+        <button type="button" (click)="navigateToUserForm()" class="btn btn-outline-success"> + Create
             User</button>
     </div>
-    <app-table [headerTable]="headerTable" [dataSource]="userList" (onClickEdit)="navigateToUserForm('edit')"
+    <app-table [headerTable]="headerTable" [dataSource]="userList" (onClickEdit)="navigateToUserForm($event)"
         (onClickDelete)="deleteUser($event)"></app-table>
 </div>

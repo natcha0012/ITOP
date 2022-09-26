@@ -30,10 +30,10 @@ export class UserListPageComponent implements OnInit {
     this.userService.deleteUser(id).subscribe();
   }
 
-  public navigateToUserForm(type: string): void {
-    if (type === 'edit')
-      this.router.navigate(['edit-user'])
-    if (type === 'create')
+  public navigateToUserForm(id?: number): void {
+    if (id)
+      this.router.navigate([`edit-user/${id}`])
+    else
       this.router.navigate(['create-user'])
   }
 

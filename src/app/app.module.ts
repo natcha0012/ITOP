@@ -8,6 +8,7 @@ import { TableComponent } from './table/table.component';
 import { UserListPageComponent } from './user-list-page/user-list-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserFormPageComponent } from './user-form-page/user-form-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UserFormPageComponent } from './user-form-page/user-form-page.component
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

@@ -10,7 +10,7 @@ export class TableComponent implements OnInit {
 
   @Input() headerTable: string[] = [];
   @Input() dataSource: User[] = [];
-  @Output() onClickEdit = new EventEmitter<boolean>;
+  @Output() onClickEdit = new EventEmitter<number>;
   @Output() onClickDelete = new EventEmitter<number>;
 
   constructor() { }
@@ -18,8 +18,8 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public edit(): void {
-    this.onClickEdit.emit(true);
+  public edit(id: number): void {
+    this.onClickEdit.emit(id);
   }
 
   public delete(id: number): void {
