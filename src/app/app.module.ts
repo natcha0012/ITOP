@@ -9,6 +9,7 @@ import { UserListPageComponent } from './user-list-page/user-list-page.component
 import { HttpClientModule } from '@angular/common/http';
 import { UserFormPageComponent } from './user-form-page/user-form-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PaginatorComponent } from './paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -16,12 +17,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     TableComponent,
     UserListPageComponent,
     UserFormPageComponent,
+    PaginatorComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

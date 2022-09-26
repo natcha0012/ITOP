@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { PageOptions } from 'src/models/page-options.model';
 import { User } from 'src/models/user.model';
 
 
@@ -17,8 +18,12 @@ export class UserService {
     return this.http.post(environment.API.USER, user);
   }
 
-  public getUserList() {
-    return this.http.get<User[]>(environment.API.USER);
+  public getUserList(pageOptions?: PageOptions) {
+    const query = { ...pageOptions }
+    delete query.total
+    return this.http.get(environment.API.USER, {
+      params: { ...query }
+    });
   }
 
   public getUserByID(id: number) {
@@ -30,7 +35,6 @@ export class UserService {
   }
 
   public deleteUser(id: number) {
-    console.log('delete user', id)
     return this.http.delete(`${environment.API.USER}/${id}`);
   }
 }

@@ -1,0 +1,29 @@
+.paginator {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.btn {
+    font-weight: 800 !important;
+    border-radius: 50%;
+    /* color: #38761d; */
+    font-size: 1.3rem;
+}
+
+.btn:focus {
+    box-shadow: none !important;
+}
+
+.btn:active {
+    text-shadow: 0px 0px 5px;
+}
+
+.btn:disabled {
+    color: rgb(161, 158, 158)
+}
+
+.page-detail {
+    margin: 10px;
+    color: rgb(109, 104, 104)
+}

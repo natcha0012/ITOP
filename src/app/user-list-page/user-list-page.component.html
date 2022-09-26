@@ -3,6 +3,7 @@
         <button type="button" (click)="navigateToUserForm()" class="btn btn-outline-success"> + Create
             User</button>
     </div>
-    <app-table [headerTable]="headerTable" [dataSource]="userList" (onClickEdit)="navigateToUserForm($event)"
-        (onClickDelete)="deleteUser($event)"></app-table>
+    <app-table [headerTable]="headerTable" [dataSource]="userList" [pageOptions]="pageOptions"
+        (onClickEdit)="navigateToUserForm($event)" (onClickDelete)="deleteUser($event)"
+        (changePage)="updatePage($event)"></app-table>
 </div>

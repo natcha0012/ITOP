@@ -1,0 +1,6 @@
+<div class="paginator">
+    <button type="button" class="btn" (click)="prevPage()" [disabled]="disable.prev">{{prev}}</button>
+    <div class="page-detail"> {{pageDetail}}
+    </div>
+    <button type="button" class="btn" (click)="nextPage()" [disabled]="disable.next">{{next}}</button>
+</div>
